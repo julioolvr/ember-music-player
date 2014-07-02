@@ -3,6 +3,16 @@
   <title>Ember Music Player</title>
 </head>
 <body>
+  <script type="text/x-handlebars">
+      {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="song">
+      <h1>{{name}}</h1>
+      <h2>{{artist}}</h2>
+
+      <audio controls {{bind-attr src=path}}></audio>
+  </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
@@ -10,5 +20,8 @@
   <script src="js/libs/ember-data.js"></script>
 
   <script src="js/application.js"></script>
+  <script src="js/router.js"></script>
+
+  <script src="js/models/song.js"></script>
 </body>
 </html>
