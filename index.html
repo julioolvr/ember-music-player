@@ -4,14 +4,21 @@
 </head>
 <body>
   <script type="text/x-handlebars">
-      {{outlet}}
+    <h1>Music Player</h1>
+    {{outlet}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="song">
-      <h1>{{name}}</h1>
-      <h2>{{artist}}</h2>
+    <h2>{{name}}</h2>
+    <h3>{{#link-to 'artist' artist}}{{artist}}{{/link-to}}</h3>
 
-      <audio controls {{bind-attr src=path}}></audio>
+    <audio controls {{bind-attr src=path}}></audio>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="artist">
+    {{#each}}
+      {{#link-to 'song' this}}{{name}}{{/link-to}}
+    {{/each}}
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
