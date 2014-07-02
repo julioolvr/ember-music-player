@@ -4,8 +4,8 @@ MusicPlayer.Router.map(function() {
 });
 
 MusicPlayer.IndexRoute = Ember.Route.extend({
-  beforeModel: function() {
-    this.transitionTo('song', 1);
+  model: function() {
+    return this.store.find('song');
   }
 });
 

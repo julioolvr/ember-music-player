@@ -6,6 +6,18 @@
   <script type="text/x-handlebars">
     <h1>Music Player</h1>
     {{outlet}}
+
+    <footer>
+      {{#link-to 'index'}}Home{{/link-to}}
+    </footer>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="index">
+    <ul>
+      {{#each}}
+        <li>{{#link-to 'song' this}}{{name}}{{/link-to}} [by {{#link-to 'artist' artist}}{{artist}}{{/link-to}}]</li>
+      {{/each}}
+    </ul>
   </script>
 
   <script type="text/x-handlebars" data-template-name="song">
