@@ -24,6 +24,8 @@
     <h2>{{name}}</h2>
     <h3>{{#link-to 'artist' artist}}{{artist}}{{/link-to}}</h3>
 
+    {{cover-art mbid=mbid}}
+
     <audio controls {{bind-attr src=path}}></audio>
   </script>
 
@@ -31,6 +33,10 @@
     {{#each}}
       {{#link-to 'song' this}}{{name}}{{/link-to}}
     {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="components/cover-art">
+    <img {{bind-attr src=coverArtPath}}/>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
@@ -42,5 +48,7 @@
   <script src="js/router.js"></script>
 
   <script src="js/models/song.js"></script>
+
+  <script src="js/components/cover-art.js"></script>
 </body>
 </html>
