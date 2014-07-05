@@ -15,14 +15,14 @@
   <script type="text/x-handlebars" data-template-name="index">
     <ul>
       {{#each}}
-        <li>{{#link-to 'song' this}}{{name}}{{/link-to}} [by {{#link-to 'artist' artist}}{{artist}}{{/link-to}}]</li>
+        <li>{{#link-to 'song' this}}{{name}}{{/link-to}} [by {{#link-to 'artist' artist}}{{artist.name}}{{/link-to}}]</li>
       {{/each}}
     </ul>
   </script>
 
   <script type="text/x-handlebars" data-template-name="song">
     <h2>{{name}}</h2>
-    <h3>{{#link-to 'artist' artist}}{{artist}}{{/link-to}}</h3>
+    <h3>{{#link-to 'artist' artist}}{{artist.name}}{{/link-to}}</h3>
 
     {{cover-art mbid=mbid}}
 
@@ -30,8 +30,8 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="artist">
-    {{#each}}
-      {{#link-to 'song' this}}{{name}}{{/link-to}}
+    {{#each song in songs}}
+      {{#link-to 'song' song}}{{song.name}}{{/link-to}}
     {{/each}}
   </script>
 
@@ -48,6 +48,7 @@
   <script src="js/router.js"></script>
 
   <script src="js/models/song.js"></script>
+  <script src="js/models/artist.js"></script>
 
   <script src="js/components/cover-art.js"></script>
 </body>
