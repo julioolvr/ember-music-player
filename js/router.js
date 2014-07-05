@@ -8,12 +8,3 @@ MusicPlayer.IndexRoute = Ember.Route.extend({
     return this.store.find('song');
   }
 });
-
-// MusicPlayer.ArtistRoute = Ember.Route.extend({
-//   model: function(params) {
-//     // TODO: When not using fixtures anymore, probably findQuery will be better
-//     return this.store.find('artist').then(function(songs) {
-//       return songs.filterBy('artist', params.artist_name);
-//     });
-//   },
-// });
