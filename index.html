@@ -65,11 +65,20 @@
     {{#each}}
       <div>
         By: {{username}}
+        <div class="pull-right">
+          {{time-ago date=createdAt}}
+        </div>
         <p>
           {{content}}
         </p>
       </div>
     {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="components/time-ago">
+    <time {{bind-attr datetime=iso}}>
+      {{timeAgo}}
+    </time>
   </script>
 
   <script type="text/x-handlebars" data-template-name="comment/new">
@@ -98,6 +107,7 @@
   <script src="js/libs/handlebars-1.1.2.js"></script>
   <script src="js/libs/ember-1.5.1.js"></script>
   <script src="js/libs/ember-data.js"></script>
+  <script src="js/libs/moment.js"></script>
 
   <script src="js/application.js"></script>
   <script src="js/router.js"></script>
@@ -107,8 +117,10 @@
   <script src="js/models/comment.js"></script>
 
   <script src="js/controllers/song_controller.js"></script>
+  <script src="js/controllers/comments_controller.js"></script>
 
   <script src="js/components/cover-art.js"></script>
+  <script src="js/components/time-ago.js"></script>
 
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
