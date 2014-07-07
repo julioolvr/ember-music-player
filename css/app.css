@@ -1,0 +1,12 @@
+.song-player .song-player--cover img {
+  width: 100%;
+}
+
+.song-player audio {
+  width: 100%;
+}
+
+.comments {
+  max-height: 300px;
+  overflow-y: scroll;
+}
