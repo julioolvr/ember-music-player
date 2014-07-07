@@ -1,4 +1,10 @@
-window.MusicPlayer = Ember.Application.create();
+window.MusicPlayer = Ember.Application.create({
+  rootElement: '#music-player-app'
+});
+
+MusicPlayer.Router = Ember.Router.extend({
+  location: 'none'
+});
 
 MusicPlayer.ApplicationAdapter = DS.RESTAdapter.extend({
   host: 'http://localhost:2403'
