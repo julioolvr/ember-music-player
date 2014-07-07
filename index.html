@@ -27,6 +27,9 @@
     {{cover-art mbid=mbid}}
 
     <audio controls {{bind-attr src=path}}></audio>
+
+    {{render 'comments' comments}}
+    {{partial 'comment/new'}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="artist">
@@ -39,6 +42,33 @@
     <img {{bind-attr src=coverArtPath}}/>
   </script>
 
+  <script type="text/x-handlebars" data-template-name="comments">
+    {{#each}}
+      <div>
+        By: {{username}}
+        <p>
+          {{content}}
+        </p>
+      </div>
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="comment/new">
+    <div>
+      <label>
+        Username:
+        {{input value=newComment.username}}
+      </label>
+    </div>
+    <div>
+      <label>
+        Comment:
+        {{textarea value=newComment.content}}
+      </label>
+    </div>
+    <button {{action 'saveComment'}}>Send</button>
+  </script>
+
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
   <script src="js/libs/ember-1.5.1.js"></script>
@@ -49,6 +79,9 @@
 
   <script src="js/models/song.js"></script>
   <script src="js/models/artist.js"></script>
+  <script src="js/models/comment.js"></script>
+
+  <script src="js/controllers/song_controller.js"></script>
 
   <script src="js/components/cover-art.js"></script>
 </body>
