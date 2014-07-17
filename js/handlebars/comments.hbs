@@ -1,0 +1,11 @@
+{{#each}}
+  <div>
+    By: {{username}}
+    <div class="pull-right">
+      {{time-ago date=createdAt}}
+    </div>
+    <p>
+      {{content}}
+    </p>
+  </div>
+{{/each}}

@@ -5,113 +5,13 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
-  <script type="text/x-handlebars">
-    <div class="container-fluid">
-      <header>
-        <h1>{{#link-to 'index'}}Music Player{{/link-to}}</h1>
-      </header>
-
-      {{outlet}}
-    </div>
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="index">
-    <ul>
-      {{#each}}
-        <li>{{#link-to 'song' this}}{{name}}{{/link-to}} [by {{#link-to 'artist' artist}}{{artist.name}}{{/link-to}}]</li>
-      {{/each}}
-    </ul>
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="loading">
-    Loading...
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="song">
-    <div class="row">
-      <div class="col-sm-4 song-player">
-        <h2>{{name}}</h2>
-        <h3>{{#link-to 'artist' artist}}{{artist.name}}{{/link-to}}</h3>
-
-        <div class="song-player--cover">
-          {{cover-art mbid=mbid}}
-        </div>
-
-        <audio controls {{bind-attr src=path}}></audio>
-      </div>
-
-      <div class="col-sm-8">
-        <div>
-          {{partial 'comment/new'}}
-        </div>
-        <div>
-          <strong>Comments:</strong>
-          <div class="comments">
-            {{render 'comments' comments}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="artist">
-    <h2>{{name}}</h2>
-    {{#each song in songs}}
-      {{#link-to 'song' song}}{{song.name}}{{/link-to}}
-    {{/each}}
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="components/cover-art">
-    <img {{bind-attr src=coverArtPath}}/>
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="comments">
-    {{#each}}
-      <div>
-        By: {{username}}
-        <div class="pull-right">
-          {{time-ago date=createdAt}}
-        </div>
-        <p>
-          {{content}}
-        </p>
-      </div>
-    {{/each}}
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="components/time-ago">
-    <time {{bind-attr datetime=iso}}>
-      {{timeAgo}}
-    </time>
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="comment/new">
-    <div class="form-horizontal">
-      <div class="form-group">
-        <label class="control-label col-sm-2">
-          Username:
-        </label>
-        <div class="col-sm-10">
-          {{input class="form-control" value=newComment.username}}
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2">
-          Comment:
-        </label>
-        <div class="col-sm-10">
-          {{textarea class="form-control" value=newComment.content}}
-        </div>
-      </div>
-      <button class="btn btn-default" {{action 'saveComment'}}>Send</button>
-    </div>
-  </script>
-
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
   <script src="js/libs/ember-1.5.1.js"></script>
   <script src="js/libs/ember-data.js"></script>
   <script src="js/libs/moment.js"></script>
+
+  <script src="js/templates.js"></script>
 
   <script src="js/application.js"></script>
   <script src="js/router.js"></script>

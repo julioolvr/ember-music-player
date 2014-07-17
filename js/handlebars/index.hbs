@@ -1,0 +1,5 @@
+<ul>
+  {{#each}}
+    <li>{{#link-to 'song' this}}{{name}}{{/link-to}} [by {{#link-to 'artist' artist}}{{artist.name}}{{/link-to}}]</li>
+  {{/each}}
+</ul>

@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-4 song-player">
+    <h2>{{name}}</h2>
+    <h3>{{#link-to 'artist' artist}}{{artist.name}}{{/link-to}}</h3>
+
+    <div class="song-player--cover">
+      {{cover-art mbid=mbid}}
+    </div>
+
+    <audio controls {{bind-attr src=path}}></audio>
+  </div>
+
+  <div class="col-sm-8">
+    <div>
+      {{partial 'comment/new'}}
+    </div>
+    <div>
+      <strong>Comments:</strong>
+      <div class="comments">
+        {{render 'comments' comments}}
+      </div>
+    </div>
+  </div>
+</div>

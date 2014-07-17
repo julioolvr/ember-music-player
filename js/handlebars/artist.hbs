@@ -1,0 +1,4 @@
+<h2>{{name}}</h2>
+{{#each song in songs}}
+  {{#link-to 'song' song}}{{song.name}}{{/link-to}}
+{{/each}}
